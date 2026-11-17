@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>Online Examination</title>
+<style>
+body {
+    font-family: Arial;
+    background-color: lightblue;
+}
+.exam {
+    background-color: lavender;
+    width: 60%;
+    margin: 30px auto;
+    padding: 20px;
+    border-radius: 10px;
+}
+h2 {
+    text-align: center;
+    color: darkblue;
+}
+h3 {
+    color: darkslateblue;
+}
+p {
+    font-weight: bold;
+    color: darkgreen;
+}
+button {
+    background-color: royalblue;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+button:hover {
+    background-color: navy;
+}
+#result {
+    color: darkgreen;
+    font-size: 20px;
+}
+</style>
+</head>
+<body>
+<div class="exam">
+<h2><u>ONLINE EXAMINATION</u></h2>
+<h3>Answer the following questions:</h3>
+<form>
+<p>1.What is the full form of HTML?</p>
+<input type="radio" name="q1" value="Hyper Text Markup Language"> Hyper Text Markup Language<br>
+<input type="radio" name="q1" value="High Text Machine Language"> High Text Machine Language<br>
+<input type="radio" name="q1" value="Hyper Tool Markup Language"> Hyper Tool Markup Language<br>
+<p>2.Which tag is used to create a heading in HTML?</p>
+<input type="radio" name="q2" value="p"> &lt;p&gt;<br>
+<input type="radio" name="q2" value="h1"> &lt;h1&gt;<br>
+<input type="radio" name="q2" value="br"> &lt;br&gt;<br>
+<p>3.Which language is used to style web pages?</p>
+<input type="radio" name="q3" value="HTML"> HTML<br>
+<input type="radio" name="q3" value="CSS"> CSS<br>
+<input type="radio" name="q3" value="Java"> Java<br>
+<p>4.Which CSS property changes the background color?</p>
+<input type="radio" name="q4" value="color"> color<br>
+<input type="radio" name="q4" value="background-color"> background-color<br>
+<input type="radio" name="q4" value="font-size"> font-size<br>
+<p>5.Which tag is used to create a line break?</p>
+<input type="radio" name="q5" value="br"> &lt;br&gt;<br>
+<input type="radio" name="q5" value="hr"> &lt;hr&gt;<br>
+<input type="radio" name="q5" value="p"> &lt;p&gt;<br>
+<p>6.Which symbol is used to select an ID in CSS?</p>
+<input type="radio" name="q6" value="."> .<br>
+<input type="radio" name="q6" value="#"> #<br>
+<input type="radio" name="q6" value="*"> *<br>
+<p>7.Which keyword is used to declare a variable in JavaScript?</p>
+<input type="radio" name="q7" value="var"> var<br>
+<input type="radio" name="q7" value="print"> print<br>
+<input type="radio" name="q7" value="display"> display<br>
+<p>8.Which HTML tag is used to create an unordered list?</p>
+<input type="radio" name="q8" value="ol"> &lt;ol&gt;<br>
+<input type="radio" name="q8" value="ul"> &lt;ul&gt;<br>
+<input type="radio" name="q8" value="li"> &lt;li&gt;<br>
+<p>9.Which method is used to display an alert box in JavaScript?</p>
+<input type="radio" name="q9" value="alert()"> alert()<br>
+<input type="radio" name="q9" value="prompt()"> prompt()<br>
+<input type="radio" name="q9" value="write()"> write()<br>
+<p>10.Which HTML tag is used to create a button?</p>
+<input type="radio" name="q10" value="input"> &lt;input&gt;<br>
+<input type="radio" name="q10" value="button"> &lt;button&gt;<br>
+<input type="radio" name="q10" value="form"> &lt;form&gt;<br>
+<br>
+<button type="button" onclick="checkResult()">
+Submit Exam
+</button>
+</form>
+<h3 id="result"></h3>
+</div>
+<script>
+function checkResult() {
+let score = 0;
+let answers = {
+    q1: "Hyper Text Markup Language",
+    q2: "h1",
+    q3: "CSS",
+    q4: "background-color",
+    q5: "br",
+    q6: "#",
+    q7: "var",
+    q8: "ul",
+    q9: "alert()",
+    q10: "button"
+};
+for(let question in answers) {
+    let selected = document.querySelector(
+        'input[name="' + question + '"]:checked'
+    );
+    if(selected && selected.value === answers[question]) {
+        score++;
+    }
+}
+document.getElementById("result").innerHTML ="Your Score is:"+score+"/10";
+}
+</script>
+</body>
+</html>
